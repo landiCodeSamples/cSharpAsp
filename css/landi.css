@@ -1,0 +1,76 @@
+﻿body{
+    background: url(../img/adminBG.jpg);
+    background-attachment:fixed;
+}
+.pnlBG {
+    background: url(../img/googleBG.jpg);
+    color: #fff;
+    text-shadow: 2px 2px 5px #3498DB;
+}
+.getSpace {
+    margin-top: 100px;
+}
+.displayBG {
+    background-color: #DADFE1;
+}
+.navbar{
+    border-radius: 0;
+}
+.panel{
+   
+    box-shadow: 0px 1px 8px #fff;
+}
+#defPageWrapper {
+    background: url(../img/defBgImg.png);
+    min-height: 900px;
+    text-align: center;
+}
+.carouselSize{
+    max-width: 920px;
+    max-height: 280px; 
+}
+.carousel{
+    /*margin-bottom: 70px;
+    margin-top: 20px;*/   
+}
+.infoSection {
+    padding: 10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    background: url(../img/contentBG.png);
+    max-width: 920px;
+    color: #fff;
+    text-shadow: 1px 1px 1px #000;
+}
+.page-header {
+    text-shadow: 1px 1px 3px #3498DB;
+}
+.font_white {
+    color: white;
+    text-shadow: 0;
+}
+.result_box {
+    
+     margin-top: 50px;
+}
+
+@media (min-width: 960px) {
+    .true_center{
+        width: 960px;
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+}
+.form-group {
+    max-width: 400px;
+}
+#googleMap{
+    max-width:530px;
+    height:300px;
+    margin-top: 20px;
+}
+#street {
+    margin-top:20px;
+}

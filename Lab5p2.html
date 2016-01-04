@@ -1,0 +1,93 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link type="text/css" rel="stylesheet" href="css/bootstrap.css" />
+    <link type="text/css" rel="stylesheet" href="css/landi.css"/>
+	<title>Lab5</title>
+</head>	
+<body>
+<div class="container">
+<form id="frmMovies">
+    <div class="page-header">
+        <h3>Movie Reviews</h3>
+    </div>
+    <div id="userInput">
+        <div class="jumbotron">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="txtUserWordSearch">Search By Keyword</label>
+                        <input id="txtUserWordSearch" class="form-control" type="text" required="true"/>
+                        <input id="btnGetMovieInfo" class="btn-success" type="button" value="Get Info";/>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <p>
+                        New York Times movie review app. Please enter a keyword to search by and then <br/>
+                        the results will by generated based on your keyword.  
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div id="pnlResults">
+            <div class="container results">
+                <div class="row">
+                    <div class="col-md-12">
+                        <p id="amount"></p>
+                        <ul id="movieInf">
+
+                        </ul>
+                    </div>
+                </div>
+           </div>
+        </div>
+     </div>
+</form>
+</div>
+    <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+    <script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+    <script src="js/bootstrap.js"></script> 
+    <script type="text/javascript" src="js/plugin.js"></script>
+<script type="text/javascript">
+    $(document).ready(function() {
+        $("#btnGetMovieInfo").click(function (event) {
+            var server = "http://api.nytimes.com/svc/movies/v2/reviews/search.json?";
+            var api_key = "&api-key=edadde83715223c493ec0c0d4bd9d6d4:15:70069446";
+            var query = "query=" + frmMovies.txtUserWordSearch.value;
+            var url = server + query + api_key;
+
+            
+            $.getJSON(url)
+            .done(function (data) {
+                $("Number Of Results: " + data.num_results).appendTo('#amount');
+                for (var i = 0; i < data.results.length; i++) {
+                    $("<hr/><li>" + "Title: " + data.results[i].display_title + "</li>").appendTo('#movieInf');
+                    $("<li>" + "By: " + data.results[i].byline + "</li>").appendTo('#movieInf');
+                    $("<li>" + "Opening Date: " + data.results[i].opening_date + "</li>").appendTo('#movieInf');
+                    $("<li>" + "MPAA Rating: " + data.results[i].mpaa_rating + "</li>").appendTo('#movieInf');
+                    for (var y = 0; y < data.result[i].related_urls.length; y++) {
+                        $("<li>" + "Related URL's: " + '<a href=">' + data.results[i].related_urls[y].url 
+                            + '"' + 'title=""' + '</a>' + "</li>").appendTo('#movieInf');
+                    }
+                }
+            })
+            .fail(function (jqXHR, textStatus, errorThrown) {
+                console.log('error: ' + textStatus);
+            });
+        });
+    });
+</script>
+<script type="text/javascript">
+    $(window).load(function () {
+        $("#pnlResults").addClass('dynamicClass').hide();
+    });
+    $('#btnGetMovieInfo').click(function (event) {
+        $("#userInput").hide();
+        $("#pnlResults").show();
+    });
+</script>
+</body>
+	
+</html>

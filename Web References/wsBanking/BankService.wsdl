@@ -1,0 +1,276 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="HelloWorld">
+        <s:complexType />
+      </s:element>
+      <s:element name="HelloWorldResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="HelloWorldResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="test">
+        <s:complexType />
+      </s:element>
+      <s:element name="testResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="testResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetBankInformation">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetBankInformationResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="GetBankInformationResult" type="tns:BankInformation" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="BankInformation">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="OwnerName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="AccountID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="accounts" type="tns:ArrayOfAccountInfo" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfAccountInfo">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="AccountInfo" type="tns:AccountInfo" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="AccountInfo">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="AccountType" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Amount" type="s:decimal" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="string" nillable="true" type="s:string" />
+      <s:element name="int" type="s:int" />
+      <s:element name="BankInformation" type="tns:BankInformation" />
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="HelloWorldSoapIn">
+    <wsdl:part name="parameters" element="tns:HelloWorld" />
+  </wsdl:message>
+  <wsdl:message name="HelloWorldSoapOut">
+    <wsdl:part name="parameters" element="tns:HelloWorldResponse" />
+  </wsdl:message>
+  <wsdl:message name="testSoapIn">
+    <wsdl:part name="parameters" element="tns:test" />
+  </wsdl:message>
+  <wsdl:message name="testSoapOut">
+    <wsdl:part name="parameters" element="tns:testResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetBankInformationSoapIn">
+    <wsdl:part name="parameters" element="tns:GetBankInformation" />
+  </wsdl:message>
+  <wsdl:message name="GetBankInformationSoapOut">
+    <wsdl:part name="parameters" element="tns:GetBankInformationResponse" />
+  </wsdl:message>
+  <wsdl:message name="HelloWorldHttpGetIn" />
+  <wsdl:message name="HelloWorldHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="testHttpGetIn" />
+  <wsdl:message name="testHttpGetOut">
+    <wsdl:part name="Body" element="tns:int" />
+  </wsdl:message>
+  <wsdl:message name="GetBankInformationHttpGetIn" />
+  <wsdl:message name="GetBankInformationHttpGetOut">
+    <wsdl:part name="Body" element="tns:BankInformation" />
+  </wsdl:message>
+  <wsdl:message name="HelloWorldHttpPostIn" />
+  <wsdl:message name="HelloWorldHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="testHttpPostIn" />
+  <wsdl:message name="testHttpPostOut">
+    <wsdl:part name="Body" element="tns:int" />
+  </wsdl:message>
+  <wsdl:message name="GetBankInformationHttpPostIn" />
+  <wsdl:message name="GetBankInformationHttpPostOut">
+    <wsdl:part name="Body" element="tns:BankInformation" />
+  </wsdl:message>
+  <wsdl:portType name="BankingServiceSoap">
+    <wsdl:operation name="HelloWorld">
+      <wsdl:input message="tns:HelloWorldSoapIn" />
+      <wsdl:output message="tns:HelloWorldSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="test">
+      <wsdl:input message="tns:testSoapIn" />
+      <wsdl:output message="tns:testSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetBankInformation">
+      <wsdl:input message="tns:GetBankInformationSoapIn" />
+      <wsdl:output message="tns:GetBankInformationSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="BankingServiceHttpGet">
+    <wsdl:operation name="HelloWorld">
+      <wsdl:input message="tns:HelloWorldHttpGetIn" />
+      <wsdl:output message="tns:HelloWorldHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="test">
+      <wsdl:input message="tns:testHttpGetIn" />
+      <wsdl:output message="tns:testHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetBankInformation">
+      <wsdl:input message="tns:GetBankInformationHttpGetIn" />
+      <wsdl:output message="tns:GetBankInformationHttpGetOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="BankingServiceHttpPost">
+    <wsdl:operation name="HelloWorld">
+      <wsdl:input message="tns:HelloWorldHttpPostIn" />
+      <wsdl:output message="tns:HelloWorldHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="test">
+      <wsdl:input message="tns:testHttpPostIn" />
+      <wsdl:output message="tns:testHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetBankInformation">
+      <wsdl:input message="tns:GetBankInformationHttpPostIn" />
+      <wsdl:output message="tns:GetBankInformationHttpPostOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BankingServiceSoap" type="tns:BankingServiceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="HelloWorld">
+      <soap:operation soapAction="http://tempuri.org/HelloWorld" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="test">
+      <soap:operation soapAction="http://tempuri.org/test" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBankInformation">
+      <soap:operation soapAction="http://tempuri.org/GetBankInformation" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="BankingServiceSoap12" type="tns:BankingServiceSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="HelloWorld">
+      <soap12:operation soapAction="http://tempuri.org/HelloWorld" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="test">
+      <soap12:operation soapAction="http://tempuri.org/test" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBankInformation">
+      <soap12:operation soapAction="http://tempuri.org/GetBankInformation" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="BankingServiceHttpGet" type="tns:BankingServiceHttpGet">
+    <http:binding verb="GET" />
+    <wsdl:operation name="HelloWorld">
+      <http:operation location="/HelloWorld" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="test">
+      <http:operation location="/test" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBankInformation">
+      <http:operation location="/GetBankInformation" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="BankingServiceHttpPost" type="tns:BankingServiceHttpPost">
+    <http:binding verb="POST" />
+    <wsdl:operation name="HelloWorld">
+      <http:operation location="/HelloWorld" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="test">
+      <http:operation location="/test" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBankInformation">
+      <http:operation location="/GetBankInformation" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="BankingService">
+    <wsdl:port name="BankingServiceSoap" binding="tns:BankingServiceSoap">
+      <soap:address location="http://54.172.157.94/BankWebService/BankService.asmx" />
+    </wsdl:port>
+    <wsdl:port name="BankingServiceSoap12" binding="tns:BankingServiceSoap12">
+      <soap12:address location="http://54.172.157.94/BankWebService/BankService.asmx" />
+    </wsdl:port>
+    <wsdl:port name="BankingServiceHttpGet" binding="tns:BankingServiceHttpGet">
+      <http:address location="http://54.172.157.94/BankWebService/BankService.asmx" />
+    </wsdl:port>
+    <wsdl:port name="BankingServiceHttpPost" binding="tns:BankingServiceHttpPost">
+      <http:address location="http://54.172.157.94/BankWebService/BankService.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

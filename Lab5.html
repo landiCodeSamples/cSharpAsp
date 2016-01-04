@@ -1,0 +1,221 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link type="text/css" rel="stylesheet" href="css/bootstrap.css" />
+    <link type="text/css" rel="stylesheet" href="css/landi.css"/>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+	<title>Lab5</title>
+</head>	
+<body>
+    <div class="container">
+        <form id="main">
+            <div class="jumbotron true_center text-center">
+                <h3>Main Menu</h3>
+                <div class="row">
+                    <div class="col-md-4">
+                        <input id="btnCity" type="button" value="Get City By Zip" ;  />
+                    </div>
+                     <div class="col-md-4">
+                         <input id="btnGetClose" type="button" value="Get Cities Close By" ;  />
+                    </div>
+                    <div class="col-md-4">
+                        
+                        <a class="btn bg-info" href="../Lab5p2.html">Lab5 part2</a>
+                         <input id="btnGetnews" type="button" value="Get Info" ;  />
+                    </div>
+                </div> 
+            </div>
+        </form>
+
+        <div id="oneLocation">
+            <div class="jumbotron true_center text-center">
+                <h3>Get City By Zip</h3>
+                <div class="row">
+                    <div class="col-md-12">
+                      
+                        <form id="frmMain">
+                          
+                            <p><input id="name" class="input-lg" readonly="readonly" type="text" /></p>
+                            <p><input id="txtUserZip" type="text" placeholder="Enter Zip" /></p>
+                            <p><input id="Button1" type="button" value="Get Data" ;  /></p>
+                            <p><input id="btnMain" type="button" value="Main Menu" ;  /></p>
+                           
+                        </form>
+                        
+                    </div>
+                </div> 
+            </div>
+        </div>
+        <div id="manyLocations">
+            <div class="jumbotron true_center text-center">
+                <div class="row">
+                    <h3>Get Near By Cites By Zip</h3>
+                    <div class="col-md-12">
+                       
+                        <form id="frmMain2">
+                             <ul id="results">
+
+                             </ul>
+                            <br><br>
+                            <p><input id="txtUserZip2" type="text" placeholder="Enter Zip" /></p>
+                            <p><input id="Button2" type="button" value="Get Data" ;  /></p>
+                            <p><input id="btnMain2" type="button" value="Main Menu" ;  /></p>
+                        
+                        </form>
+                         
+                    </div>
+                </div> 
+            </div>
+        </div>
+        <div id="newsPaper">
+
+        </div>
+ 
+    </div>
+		<script type="text/javascript">
+		    $(document).ready(function () {
+		        $("#Button1").click(function (event) {
+		            var zip = frmMain.txtUserZip.value
+		            var url = "http://api.geonames.org/findNearbyPostalCodesJSON?postalcode="+zip+"&country=US&username=djlandi";
+
+		            $.getJSON(url)
+                    .done(function (data) {
+                        frmMain.name.value = data.postalCodes[0].placeName;
+                    })
+                    .fail(function (jqXHR, textStatus, errorThrown) {
+                        console.log('error: ' + textStatus);
+                    });
+		        });
+
+		    });
+		    function GetData() {
+		        var zip = frmMain.txtUserZip.value
+		        var url = "http://api.geonames.org/findNearbyPostalCodesJSON?postalcode=" + zip + "&country=US&username=djlandi";
+		        var xmlhttp = null;
+		        if (window.XMLHttpRequest) {
+		            xmlhttp = new XMLHttpRequest();
+		            //make sure that Browser supports overrideMimeType
+		            if (typeof xmlhttp.overrideMimeType != 'undefined') { xmlhttp.overrideMimeType('text/xml'); }
+		        } else if (window.ActiveXObject) {
+		            xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+		        } else {
+		            alert('Perhaps your browser does not support xmlhttprequests?');
+		        }
+
+		        // Create an HTTP GET request
+		        xmlhttp.open('GET', url, true);
+
+		        // Set the callback function
+		        xmlhttp.onreadystatechange = function () {
+		            if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+		                var myObj = eval('(' + xmlhttp.responseText + ')');
+		                var i;
+		                frmMain.name.value = myObj.postalCodes[0].placeName;
+
+
+		            } else {
+		                // waiting for the call to complete
+		            }
+		        };
+
+		        // Make the actual request
+		        xmlhttp.send(null);
+		    }
+		    function Button1_onclick() {
+
+		    }
+</script>
+<script type="text/javascript">
+    //for many cites
+    $(document).ready(function () {
+        $("#Button2").click(function (event) {
+            var zip = frmMain2.txtUserZip2.value
+            var url = "http://api.geonames.org/findNearbyPostalCodesJSON?postalcode=" + zip + "&country=US&username=djlandi";
+
+            $.getJSON(url)
+            .done(function (data) {
+          
+                for (var i = 0; i < data.postalCodes.length; i++) {
+                    
+                    $("<li>" + data.postalCodes[i].placeName + " " + data.postalCodes[i].postalCode + "</li>").appendTo('#results')
+                    console.log(i);
+                    
+                }
+                
+            })
+            
+            .fail(function (jqXHR, textStatus, errorThrown) {
+                console.log('error: ' + textStatus);
+            });
+        });
+
+
+    });
+    function GetData() {
+        var zip = frmMain2.txtUserZip2.value
+        var url = "http://api.geonames.org/findNearbyPostalCodesJSON?postalcode=" + zip + "&country=US&username=djlandi";
+        var xmlhttp = null;
+        if (window.XMLHttpRequest) {
+            xmlhttp = new XMLHttpRequest();
+            //make sure that Browser supports overrideMimeType
+            if (typeof xmlhttp.overrideMimeType != 'undefined') { xmlhttp.overrideMimeType('text/xml'); }
+        } else if (window.ActiveXObject) {
+            xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+        } else {
+            alert('Perhaps your browser does not support xmlhttprequests?');
+        }
+
+        // Create an HTTP GET request
+        xmlhttp.open('GET', url, true);
+
+        // Set the callback function
+        xmlhttp.onreadystatechange = function () {
+            if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+                var myObj = eval('(' + xmlhttp.responseText + ')');
+                //var i;
+                for (var i = 0; i < myObj.postalCodes.length; i++) {
+                    
+                  
+                    $("<li>" + myObj.postalCodes[i].placeName + " " + data.postalCodes[i].postalCode + "</li>").appendTo('#results')
+                    console.log(i);
+                }
+                
+
+            } else {
+                // waiting for the call to complete
+            }
+        };
+
+        // Make the actual request
+        xmlhttp.send(null);
+    }
+    function Button2_onclick() {
+
+    }
+</script>
+<script type="text/javascript">
+    $(window).load(function () {
+        $("#oneLocation, #manyLocations").addClass('dynamicClass').hide();
+    });
+    $('#btnCity').click(function (event) {
+        $("#main, #manyLocations").hide();
+        $("#oneLocation").show();
+    });
+    $('#btnGetClose').click(function (event) {
+        $("#main, #oneLocation").hide();
+        $("#manyLocations").show();
+    });
+    $('#btnMain').click(function (event) {
+        $("#manyLocations, #oneLocation").hide();
+        $("#main").show();
+    });
+    $('#btnMain2').click(function (event) {
+        $("#manyLocations, #oneLocation").hide();
+        $("#main").show();
+    });
+</script>
+</body>
+	
+</html>

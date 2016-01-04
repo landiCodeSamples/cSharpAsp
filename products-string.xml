@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<StockQuotes>
+  <Stock>
+    <Symbol>T</Symbol>
+    <Last>34.91</Last>
+    <Date>11/7/2014</Date>
+    <Time>4:00pm</Time>
+    <Change>+0.19</Change>
+    <Open>34.71</Open>
+    <High>34.97</High>
+    <Low>34.53</Low>
+    <Volume>17983738</Volume>
+    <MktCap>181.0B</MktCap>
+    <PreviousClose>34.72</PreviousClose>
+    <PercentageChange>+0.55%</PercentageChange>
+    <AnnRange>31.74 - 37.48</AnnRange>
+    <Earns>3.268</Earns>
+    <P-E>10.62</P-E>
+    <Name>AT&amp;T Inc.</Name>
+  </Stock>
+</StockQuotes>

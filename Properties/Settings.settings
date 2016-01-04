@@ -1,0 +1,18 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="LandiLab4Se426.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="LandiLab4Se426_wsStock_StockQuote" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://www.webservicex.net/stockquote.asmx</Value>
+    </Setting>
+    <Setting Name="LandiLab4Se426_wsfForcast_Weather" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://wsf.cdyne.com/WeatherWS/Weather.asmx</Value>
+    </Setting>
+    <Setting Name="LandiLab4Se426_WRfootball_FootballService" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://54.172.157.94/footballwebservice/footballservice.asmx</Value>
+    </Setting>
+    <Setting Name="LandiLab4Se426_wsBanking_BankingService" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://54.172.157.94/BankWebService/BankService.asmx</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

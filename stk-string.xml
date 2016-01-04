@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<StockQuotes>
+  <Stock>
+    <Symbol>DIS</Symbol>
+    <Last>90.35</Last>
+    <Date>11/4/2014</Date>
+    <Time>4:00pm</Time>
+    <Change>-1.36</Change>
+    <Open>91.97</Open>
+    <High>91.98</High>
+    <Low>89.80</Low>
+    <Volume>7928517</Volume>
+    <MktCap>155.1B</MktCap>
+    <PreviousClose>91.71</PreviousClose>
+    <PercentageChange>-1.48%</PercentageChange>
+    <AnnRange>66.72 - 91.98</AnnRange>
+    <Earns>4.164</Earns>
+    <P-E>22.02</P-E>
+    <Name>Walt Disney Compa</Name>
+  </Stock>
+</StockQuotes>

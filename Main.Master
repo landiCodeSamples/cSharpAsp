@@ -1,0 +1,68 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Main.master.cs" Inherits="LandiLab4Se426.Main" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+<title></title>
+    <link type="text/css" rel="stylesheet" href="css/bootstrap.css" />
+    <link type="text/css" rel="stylesheet" href="css/landi.css"/>
+    <link href="font-awesome-4.1.0/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
+    <asp:ContentPlaceHolder id="head" runat="server"></asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <nav class="navbar navbar-inverse" role="navigation"><!-- main nav -->
+            <div class="container">
+                <div class="navbar-header">
+                <button type="button" id="nav-toggle" class="navbar-toggle" data-toggle="collapse" data-target="#mainNav">
+                    <span class="sr-only">Toggle</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a href="../default.aspx" class="navbar-brand">SE426 Labs</a>
+            </div>
+            <div id="mainNav" class="collapse navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">                                                 
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Labs</a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li><a href="#">Lab1</a></li>
+                            <li><a href="../Lab2.aspx">Lab2</a></li>
+                            <li><a href="#">Lab3</a></li>
+                            <li><a href="../Lab4.aspx">Lab4</a></li>
+                            <li><a href="../Lab4a.aspx">Lab4a</a></li>
+                            <li><a href="../Lab5.html">Lab5</a></li>
+                        </ul>
+                    </li>
+                    
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">MidTerm</a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li><a href="../Midterm1.aspx">Problem One</a></li>
+                            <li><a href="../Midterm3.aspx">Problem Three</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="../FinalProject.aspx">FinalProject</a></li>
+                    <li><a href="#aboutModal" role="button" data-toggle="modal"><i class="fa fa-info-circle"></i> About</a></li> 
+                </ul>
+            </div>                  
+            </div>              
+        </nav><!--End main nav -->
+    <div class="container">
+        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+        
+        </asp:ContentPlaceHolder>
+    </div>
+    </form>
+<script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+<script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+<script src="js/bootstrap.js"></script> 
+<script type="text/javascript" src="js/plugin.js"></script>
+<script src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>
+<script type="text/javascript" src="js/hideOrShowDiveOnClick.js"></script>
+<script type="text/javascript" src="js/genGoogleMap.js"></script>
+
+</body>
+</html>

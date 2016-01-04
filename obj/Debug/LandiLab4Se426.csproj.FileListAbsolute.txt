@@ -1,0 +1,14 @@
+c:\users\david landi\desktop\LandiLab4Se426\LandiLab4Se426\bin\LandiLab4Se426.dll
+c:\users\david landi\desktop\LandiLab4Se426\LandiLab4Se426\bin\LandiLab4Se426.pdb
+c:\users\david landi\desktop\LandiLab4Se426\LandiLab4Se426\obj\Debug\LandiLab4Se426.csprojResolveAssemblyReference.cache
+c:\users\david landi\desktop\LandiLab4Se426\LandiLab4Se426\obj\Debug\LandiLab4Se426.dll
+c:\users\david landi\desktop\LandiLab4Se426\LandiLab4Se426\obj\Debug\LandiLab4Se426.pdb
+C:\Users\David Landi\Desktop\LandiLab4Se426\LandiLab4Se426\bin\Newtonsoft.Json.dll
+C:\Users\David Landi\Desktop\LandiLab4Se426\LandiLab4Se426\bin\System.Net.Http.Formatting.dll
+C:\Users\David Landi\Desktop\LandiLab4Se426\LandiLab4Se426\bin\System.Web.Cors.dll
+C:\Users\David Landi\Desktop\LandiLab4Se426\LandiLab4Se426\bin\System.Web.Http.Cors.dll
+C:\Users\David Landi\Desktop\LandiLab4Se426\LandiLab4Se426\bin\System.Web.Http.dll
+C:\Users\David Landi\Desktop\LandiLab4Se426\LandiLab4Se426\bin\Newtonsoft.Json.xml
+C:\Users\David Landi\Desktop\LandiLab4Se426\LandiLab4Se426\bin\System.Net.Http.Formatting.xml
+C:\Users\David Landi\Desktop\LandiLab4Se426\LandiLab4Se426\bin\System.Web.Http.xml
+C:\Users\David Landi\Desktop\LandiLab4Se426\LandiLab4Se426\bin\System.Web.Http.Cors.xml
